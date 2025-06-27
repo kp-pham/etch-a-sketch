@@ -1,4 +1,5 @@
 const SQUARES_PER_SIZE_LIMIT = 100;
+const RGB_VALUES_RANGE = 256;
 let gridLength = gridWidth = 16;
 
 const button = document.querySelector("button");
@@ -48,8 +49,16 @@ function calculateFlexBasis(gridLength) {
     return (1 / gridLength) * 100;
 }
 
+function getRandomColor() {
+    return `rgb(${getRandomRGB()}, ${getRandomRGB()}, ${getRandomRGB()})`;
+}
+
+function getRandomRGB() {
+    return Math.floor(Math.random() * RGB_VALUES_RANGE);
+}
+
 grid.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "red";
+    event.target.style.backgroundColor = getRandomColor();
 });
 
 grid.addEventListener("mouseout", (event) => {
