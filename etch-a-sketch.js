@@ -1,3 +1,4 @@
+const SQUARES_PER_SIZE_LIMIT = 100;
 let gridLength = gridWidth = 16;
 
 const button = document.querySelector("button");
@@ -31,7 +32,7 @@ button.addEventListener("click", (event) => {
         else if (squaresPerSide < 0)
              alert("The number of squares per side must be a positive.");
 
-        else if (squaresPerSide > 100)
+        else if (squaresPerSide > SQUARES_PER_SIZE_LIMIT)
              alert("The maximum number of squares per side is 100.");
 
         else 
