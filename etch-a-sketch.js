@@ -1,9 +1,10 @@
-const GRID_LENGTH = GRID_WIDTH = 16;
+let gridLength = gridWidth = 16;
 
+const button = document.querySelector("button");
 const grid = document.querySelector(".grid");
 
-for (let i = 0; i < GRID_LENGTH; ++i) {
-    for (let j = 0; j < GRID_WIDTH; ++j) {
+for (let i = 0; i < gridLength; ++i) {
+    for (let j = 0; j < gridWidth; ++j) {
         const square = document.createElement("div");
         square.classList.add("grid-square");
         grid.appendChild(square);
@@ -16,4 +17,26 @@ grid.addEventListener("mouseover", (event) => {
 
 grid.addEventListener("mouseout", (event) => {
     event.target.style.backgroundColor = "white";
+});
+
+button.addEventListener("click", (event) => {
+    let squaresPerSide;
+
+    while (true) {
+        squaresPerSide = parseInt(prompt("How many squares per side?"));
+
+        if (isNaN(squaresPerSide)) 
+            alert("Please provide a valid number.");
+
+        else if (squaresPerSide < 0)
+             alert("The number of squares per side must be a positive.");
+
+        else if (squaresPerSide > 100)
+             alert("The maximum number of squares per side is 100.");
+
+        else 
+            break;
+    }
+
+    console.log(squaresPerSide);
 });
