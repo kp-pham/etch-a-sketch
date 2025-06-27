@@ -69,7 +69,6 @@ grid.addEventListener("mouseover", (event) => {
 });
 
 grid.addEventListener("mouseout", (event) => {
-    event.target.style.backgroundColor = "white";
     darkenGridSquare(event.target);
 });
 
