@@ -34,6 +34,11 @@ function getGridDimensions() {
     return squaresPerSide;
 }
 
+function deleteGridSquares() {
+    const gridSquares = document.querySelectorAll(".grid-square");
+    gridSquares.forEach(gridSquare => grid.removeChild(gridSquare));
+}
+
 grid.addEventListener("mouseover", (event) => {
     event.target.style.backgroundColor = "red";
 });
@@ -44,6 +49,5 @@ grid.addEventListener("mouseout", (event) => {
 
 button.addEventListener("click", (event) => {
     gridLength = gridWidth = getGridDimensions();
-
-    console.log(squaresPerSide);
+    deleteGridSquares();
 });
