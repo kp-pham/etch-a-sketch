@@ -1,6 +1,6 @@
 const GRID_LENGTH = GRID_WIDTH = 16;
 
-let grid = document.querySelector(".grid");
+const grid = document.querySelector(".grid");
 
 for (let i = 0; i < GRID_LENGTH; ++i) {
     for (let j = 0; j < GRID_WIDTH; ++j) {
@@ -10,3 +10,6 @@ for (let i = 0; i < GRID_LENGTH; ++i) {
     }
 }
 
+grid.addEventListener("mouseover", (event) => {
+    event.target.style.backgroundColor = "red";
+});
