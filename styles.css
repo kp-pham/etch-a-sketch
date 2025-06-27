@@ -5,4 +5,5 @@
 
 .grid-square {
     flex-basis: 6.25%;
+    aspect-ratio: 1 / 1;
 }
