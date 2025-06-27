@@ -4,14 +4,6 @@ let gridLength = gridWidth = 16;
 const button = document.querySelector("button");
 const grid = document.querySelector(".grid");
 
-for (let i = 0; i < gridLength; ++i) {
-    for (let j = 0; j < gridWidth; ++j) {
-        const square = document.createElement("div");
-        square.classList.add("grid-square");
-        grid.appendChild(square);
-    }
-}
-
 function getGridDimensions() {
     let squaresPerSide;
 
@@ -69,3 +61,5 @@ button.addEventListener("click", (event) => {
     deleteGridSquares();
     createGridSquares(gridLength, gridWidth);
 });
+
+createGridSquares(gridLength, gridWidth);
