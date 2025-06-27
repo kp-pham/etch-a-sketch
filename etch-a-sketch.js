@@ -1,5 +1,6 @@
 const SQUARES_PER_SIZE_LIMIT = 100;
 const RGB_VALUES_RANGE = 256;
+const MAXIMUM_OPACITY = 1;
 let gridLength = gridWidth = 16;
 
 const button = document.querySelector("button");
@@ -60,8 +61,11 @@ function getRandomRGB() {
 
 function darkenGridSquare(gridSquare) {
     let opacity = parseFloat(gridSquare.style.opacity);
-    opacity += 0.1;
-    gridSquare.style.opacity = `${opacity}`;
+
+    if (opacity < MAXIMUM_OPACITY) {
+        opacity += 0.1;
+        gridSquare.style.opacity = `${opacity}`;
+    }
 }
 
 grid.addEventListener("mouseover", (event) => {
