@@ -12,15 +12,7 @@ for (let i = 0; i < gridLength; ++i) {
     }
 }
 
-grid.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "red";
-});
-
-grid.addEventListener("mouseout", (event) => {
-    event.target.style.backgroundColor = "white";
-});
-
-button.addEventListener("click", (event) => {
+function getGridDimensions() {
     let squaresPerSide;
 
     while (true) {
@@ -38,6 +30,20 @@ button.addEventListener("click", (event) => {
         else 
             break;
     }
+
+    return squaresPerSide;
+}
+
+grid.addEventListener("mouseover", (event) => {
+    event.target.style.backgroundColor = "red";
+});
+
+grid.addEventListener("mouseout", (event) => {
+    event.target.style.backgroundColor = "white";
+});
+
+button.addEventListener("click", (event) => {
+    gridLength = gridWidth = getGridDimensions();
 
     console.log(squaresPerSide);
 });
