@@ -13,3 +13,7 @@ for (let i = 0; i < GRID_LENGTH; ++i) {
 grid.addEventListener("mouseover", (event) => {
     event.target.style.backgroundColor = "red";
 });
+
+grid.addEventListener("mouseout", (event) => {
+    event.target.style.backgroundColor = "white";
+});
