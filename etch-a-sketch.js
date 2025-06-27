@@ -40,6 +40,7 @@ function createGridSquares(gridLength, gridWidth) {
             const square = document.createElement("div");
             square.classList.add("grid-square");
             square.style.flexBasis = `${flexBasis}%`;
+            square.style.opacity = "0";
             grid.appendChild(square);
         }
     } 
@@ -57,12 +58,19 @@ function getRandomRGB() {
     return Math.floor(Math.random() * RGB_VALUES_RANGE);
 }
 
+function darkenGridSquare(gridSquare) {
+    let opacity = parseFloat(gridSquare.style.opacity);
+    opacity += 0.1;
+    gridSquare.style.opacity = `${opacity}`;
+}
+
 grid.addEventListener("mouseover", (event) => {
     event.target.style.backgroundColor = getRandomColor();
 });
 
 grid.addEventListener("mouseout", (event) => {
     event.target.style.backgroundColor = "white";
+    darkenGridSquare(event.target);
 });
 
 button.addEventListener("click", (event) => {
