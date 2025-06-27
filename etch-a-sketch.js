@@ -39,6 +39,23 @@ function deleteGridSquares() {
     gridSquares.forEach(gridSquare => grid.removeChild(gridSquare));
 }
 
+function createGridSquares(gridLength, gridWidth) {
+    const flexBasis = calculateFlexBasis(gridLength);
+    
+    for (let i = 0; i < gridLength; ++i) {
+        for (let j = 0; j < gridWidth; ++j) {
+            const square = document.createElement("div");
+            square.classList.add("grid-square");
+            square.style.flexBasis = `${flexBasis}%`;
+            grid.appendChild(square);
+        }
+    } 
+}
+
+function calculateFlexBasis(gridLength) {
+    return (1 / gridLength) * 100;
+}
+
 grid.addEventListener("mouseover", (event) => {
     event.target.style.backgroundColor = "red";
 });
@@ -50,4 +67,5 @@ grid.addEventListener("mouseout", (event) => {
 button.addEventListener("click", (event) => {
     gridLength = gridWidth = getGridDimensions();
     deleteGridSquares();
+    createGridSquares(gridLength, gridWidth);
 });
